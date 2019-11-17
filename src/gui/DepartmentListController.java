@@ -1,7 +1,6 @@
 package gui;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -20,7 +19,6 @@ import model.services.DepartmentService;
 
 public class DepartmentListController implements Initializable{
 
-//	@FXML
 	private DepartmentService service;
 	
 	@FXML
@@ -35,7 +33,6 @@ public class DepartmentListController implements Initializable{
 	@FXML
 	private Button btNew;
 	
-	@FXML
 	private ObservableList<Department> obsList;
 	
 	@FXML
@@ -49,8 +46,7 @@ public class DepartmentListController implements Initializable{
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		initializeNodes();
-		
+		initializeNodes();		
 	}
 
 	private void initializeNodes() {
@@ -66,11 +62,7 @@ public class DepartmentListController implements Initializable{
 			throw new IllegalStateException("Service was null");
 		}
 		List<Department> list = service.findAll();
-
 		obsList = FXCollections.observableArrayList(list);
-
 		tableViewDepartment.setItems(obsList);
 	}
-	
-
 }
